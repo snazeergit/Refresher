@@ -5,25 +5,20 @@ import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.java.myutility.MyUtility;
 import com.java.pojo.Employee;
 import com.java.pojo.Person;
-import com.java.pojo.Student;
 
-public class CollectorsMethodDemo {
+public class CollectorsMethodDemo1 {
 
 	public static void main(String[] args) {
 		List<Person> people = MyUtility.getPersons();
-		List<Student> students = MyUtility.getStudents();
 
 		System.out.println("averagingDouble():----");
 
@@ -37,13 +32,13 @@ public class CollectorsMethodDemo {
 				.collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
 		System.out.println(list2);
 
-		//A Set maintains order depending on the implementation. For example, a HashSet is not guaranteed to preserve order, but a LinkedHashSet is. 
+		//A Set maintains order depending on the implementation. For example, a HashSet is not guaranteed to preserve order, but a LinkedHashSet is.
+		//By default Collectors.toSet() internally implemented using HashSet so even if we try to collect sorted elements, HashSet can return them in any order. 
 		Set<Person> set2 = people.stream().filter(p -> p.getAge() < 30).distinct()
 				.sorted(Comparator.comparing(Person::getAge)).collect(Collectors
 						.collectingAndThen(Collectors.toCollection(LinkedHashSet::new), Collections::unmodifiableSet));
 		System.out.println(set2);
 
-		
 		//There are two interfaces for implementing Map in java: Map and SortedMap, and three classes: HashMap, LinkedHashMap, and TreeMap.
 		//A Map doesn't allow duplicate keys, but you can have duplicate values. HashMap and LinkedHashMap allow null keys and values, 
 		//but TreeMap doesn't allow any null key or value.
@@ -89,74 +84,6 @@ public class CollectorsMethodDemo {
 		System.out.println(string1);
 		System.out.println(string2);
 		System.out.println(string3);
-
-		System.out.println("mapping():----");
-		Set<String> set3 = employees.stream().collect(Collectors.mapping(e -> e.getDepartment(), Collectors.toSet()));
-		System.out.println(set3);
-		Map<String, Set<String>> map4 = employees.stream().collect(Collectors.groupingBy(e -> e.getName(),
-				Collectors.mapping(e -> e.getDepartment(), Collectors.toSet())));
-		System.out.println(map4);
-
-		System.out.println("maxBy():----");
-		//maxBy(Comparator.naturalOrder) gives max number
-		//maxBy(Comparator.reverseOrder) gives min number
-		Optional<Employee> optional = employees.stream()
-				.collect(Collectors.maxBy(Comparator.comparing(e -> e.getSal())));
-		System.out.println(optional.get().getSal());
-		Optional<Employee> optional1 = employees.stream()
-				.collect(Collectors.maxBy(Comparator.comparingDouble(Employee::getSal)));
-		System.out.println(optional1.get().getSal());
-		Optional<Double> optional2 = employees.stream().map(e -> e.getSal())
-				.collect(Collectors.maxBy(Comparator.naturalOrder()));
-		System.out.println(optional2.get());
-
-		System.out.println("minBy():----");
-		//minBy(Comparator.reverseOrder) gives max number
-		//minBy(Comparator.naturalOrder) gives min number
-		Optional<Double> optional3 = employees.stream().map(e -> e.getSal())
-				.collect(Collectors.minBy(Comparator.naturalOrder()));
-		System.out.println(optional3.get());
-		Optional<Employee> optional4 = employees.stream()
-				.collect(Collectors.minBy(Comparator.comparingDouble(e -> e.getSal())));
-		System.out.println(optional4.get().getSal());
-
-		System.out.println("partitioningBy():----");
-		// Partition students into passing and failing
-		Map<Boolean, List<Student>> studentPartitioning = students.stream()
-				.collect(Collectors.partitioningBy(s -> s.getMarks() > 30));
-		System.out.println(studentPartitioning);
-
-		System.out.println("reducing():----");
-
-		System.out.println("summarizingInt():----");
-
-		System.out.println("summingInt():----");
-		// Compute sum of salaries of employee
-		Integer integer = people.stream().collect(Collectors.summingInt(Person::getAge));
-		System.out.println(integer);
-
-		System.out.println("toCollection():----");
-		// Accumulate names into a TreeSet
-		TreeSet<String> set = people.stream().map(p -> p.getName()).collect(Collectors.toCollection(TreeSet::new));
-		System.out.println(set);
-
-		System.out.println("toConcurrentMap():----");
-
-		System.out.println("toList():----");
-		// Accumulate names into a List
-		List<String> list = people.stream().map(p -> p.getName()).collect(Collectors.toList());
-		System.out.println(list);
-
-		System.out.println("toMap():----");
-		// Accumulate names into a Set
-		Map<String, List<String>> map = people.stream()
-				.collect(Collectors.toMap(e -> e.getName(), e -> e.getLocationPref()));
-		System.out.println(map);
-
-		System.out.println("toSet():----");
-		// Accumulate names into a Set
-		Set<String> set1 = people.stream().map(p -> p.getName()).collect(Collectors.toSet());
-		System.out.println(set1);
 
 	}
 

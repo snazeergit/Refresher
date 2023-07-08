@@ -49,6 +49,6 @@ public class MyUtility {
 	}
 
 	public static List<Integer> getIntegerList() {
-		return Arrays.asList(2, 5, 1, 8, 4, 3, 2, 8, 7, 6, 9, 0, 5);
+		return Arrays.asList(2, 3, 1, 2);
 	}
 }
