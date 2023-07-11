@@ -66,7 +66,5 @@ public class Person {
 		return Objects.equals(age, other.age) && Objects.equals(gender, other.gender)
 				&& Objects.equals(name, other.name);
 	}
-	
-	
 
 }

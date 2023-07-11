@@ -1,6 +1,7 @@
 package com.java.pojo;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Student {
 	String name;
@@ -8,7 +9,7 @@ public class Student {
 	Integer age;
 	String[] loc;
 
-	public Student(String name, int marks, int age, String[] loc) {
+	public Student(String name, Integer marks, Integer age, String[] loc) {
 		super();
 		this.name = name;
 		this.marks = marks;
@@ -24,19 +25,19 @@ public class Student {
 		this.name = name;
 	}
 
-	public int getMarks() {
+	public Integer getMarks() {
 		return marks;
 	}
 
-	public void setMarks(int marks) {
+	public void setMarks(Integer marks) {
 		this.marks = marks;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
@@ -51,6 +52,23 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", marks=" + marks + ", age=" + age + ", loc=" + Arrays.toString(loc) + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(age, other.age) && Objects.equals(name, other.name);
 	}
 
 }

@@ -32,7 +32,7 @@ public class MyUtility {
 		sList.add(new Student("Prakash", 60, 33, loc1));
 		sList.add(new Student("Sundar", 40, 28, loc2));
 		sList.add(new Student("Sundar", 40, 28, loc2));
-		sList.add(new Student("Soniya", 80, 27, loc3));
+		sList.add(new Student("Sony", 80, 27, loc3));
 		sList.add(new Student("Karim", 20, 25, loc4));
 		sList.add(new Student("Karim", 20, 25, loc4));
 		return sList;
@@ -42,9 +42,10 @@ public class MyUtility {
 		List<Employee> empList = new ArrayList<>();
 		empList.add(new Employee("Nagesh", 33, "male", List.of("Hyderabad", "Banglore", "Chennai"), 70000.0, "Sales"));
 		empList.add(new Employee("Malli", 28, "male", List.of("Tirupati", "Nellore", "Hyderabad"), 20000.0, "RnD"));
+		empList.add(new Employee("Malli", 28, "male", List.of("Tirupati", "Nellore", "Hyderabad"), 20000.0, "RnD"));
 		empList.add(new Employee("Kavita", 27, "female", List.of("Nellore", "Eluru", "Chennai"), 30000.0, "Sales"));
+		empList.add(new Employee("Kavita", 27, "female", List.of("Nellore", "Eluru", "Chennai"), 40000.0, "Sales"));
 		empList.add(new Employee("Sumana", 25, "female", List.of("Tirupati", "Nellore"), 40000.0, "Finance"));
-		empList.add(new Employee("Kavita", 27, "female", List.of("Nellore", "Eluru", "Chennai"), 30000.0, "Sales"));
 		return empList;
 	}
 

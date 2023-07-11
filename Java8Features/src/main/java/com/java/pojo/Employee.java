@@ -77,7 +77,7 @@ public class Employee {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(age, department, gender, name, sal);
+		return Objects.hash(age, name);
 	}
 
 	@Override
@@ -89,9 +89,7 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		return Objects.equals(age, other.age) && Objects.equals(department, other.department)
-				&& Objects.equals(gender, other.gender) && Objects.equals(name, other.name)
-				&& Objects.equals(sal, other.sal);
+		return Objects.equals(age, other.age) && Objects.equals(name, other.name);
 	}
 
 }

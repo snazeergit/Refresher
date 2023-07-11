@@ -20,9 +20,9 @@ public class CollectorsMethodDemo1 {
 	public static void main(String[] args) {
 		List<Person> people = MyUtility.getPersons();
 
-		System.out.println("averagingDouble():----");
+		System.out.println("averagingDouble():----------------------------------------");
 
-		System.out.println("collectingAndThen():----");
+		System.out.println("collectingAndThen():----------------------------------------");
 		//This method is most commonly used for creating immutable collections.
 		//A List can contain duplicates, but a Set can't.
 		//A List will preserve the order of insertion, but a Set may or may not.
@@ -47,11 +47,11 @@ public class CollectorsMethodDemo1 {
 						Collections::unmodifiableMap));
 		System.out.println(map2);
 
-		System.out.println("count():----");
+		System.out.println("count():----------------------------------------");
 		Long count = people.stream().map(p -> p.getName()).collect(Collectors.counting());
 		System.out.println(count);
 
-		System.out.println("groupingBy():----");
+		System.out.println("groupingBy():----------------------------------------");
 		List<Employee> employees = MyUtility.getEmployees();
 		// Group employees by department
 		Map<String, List<Employee>> map1 = employees.stream().collect(Collectors.groupingBy(e -> e.getDepartment()));
@@ -65,7 +65,7 @@ public class CollectorsMethodDemo1 {
 				.collect(Collectors.groupingBy(e -> e.getDepartment(), TreeMap::new, Collectors.toSet()));
 		System.out.println(treemap);
 
-		System.out.println("groupingByConcurrent():----");
+		System.out.println("groupingByConcurrent():----------------------------------------");
 		ConcurrentMap<String, List<Employee>> concurrentMap1 = employees.stream()
 				.collect(Collectors.groupingByConcurrent(e -> e.getDepartment()));
 		System.out.println(concurrentMap1);
@@ -76,7 +76,7 @@ public class CollectorsMethodDemo1 {
 				.groupingByConcurrent(e -> e.getDepartment(), ConcurrentSkipListMap::new, Collectors.toSet()));
 		System.out.println(concurrentMap3);
 
-		System.out.println("joining():----");
+		System.out.println("joining():----------------------------------------");
 		// Convert elements to strings and concatenate them, separated by commas
 		String string1 = people.stream().map(p -> p.getName()).collect(Collectors.joining());
 		String string2 = people.stream().map(p -> p.getName()).collect(Collectors.joining(","));

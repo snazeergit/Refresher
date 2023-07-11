@@ -1,24 +1,15 @@
 package com.java.streams;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.function.BinaryOperator;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.java.myutility.MyUtility;
 import com.java.pojo.Employee;
-import com.java.pojo.Person;
 import com.java.pojo.Student;
 
 public class CollectorsMethodDemo2 {
@@ -28,14 +19,14 @@ public class CollectorsMethodDemo2 {
 		List<Integer> intList = MyUtility.getIntegerList();
 		List<Employee> employees = MyUtility.getEmployees();
 
-		System.out.println("mapping():----");
+		System.out.println("mapping():--------------------------------");
 		Set<String> set3 = employees.stream().collect(Collectors.mapping(e -> e.getDepartment(), Collectors.toSet()));
 		System.out.println(set3);
 		Map<String, Set<String>> map4 = employees.stream().collect(Collectors.groupingBy(e -> e.getName(),
 				Collectors.mapping(e -> e.getDepartment(), Collectors.toSet())));
 		System.out.println(map4);
 
-		System.out.println("maxBy():----");
+		System.out.println("maxBy():--------------------------------");
 		//maxBy(Comparator.naturalOrder) gives max number
 		//maxBy(Comparator.reverseOrder) gives min number
 		Optional<Employee> optional = employees.stream()
@@ -48,7 +39,7 @@ public class CollectorsMethodDemo2 {
 				.collect(Collectors.maxBy(Comparator.naturalOrder()));
 		System.out.println(optional2.get());
 
-		System.out.println("minBy():----");
+		System.out.println("minBy():--------------------------------");
 		//minBy(Comparator.reverseOrder) gives max number
 		//minBy(Comparator.naturalOrder) gives min number
 		Optional<Double> optional3 = employees.stream().map(e -> e.getSal())
@@ -58,7 +49,7 @@ public class CollectorsMethodDemo2 {
 				.collect(Collectors.minBy(Comparator.comparingDouble(e -> e.getSal())));
 		System.out.println(optional4.get().getSal());
 
-		System.out.println("partitioningBy():----");
+		System.out.println("partitioningBy():--------------------------------");
 		// Partition students into passing and failing
 		Map<Boolean, List<Student>> map = students.stream().collect(Collectors.partitioningBy(s -> s.getMarks() > 30));
 		System.out.println(map);
@@ -71,7 +62,7 @@ public class CollectorsMethodDemo2 {
 				.collect(Collectors.partitioningBy(e -> e.getAge() < 30, Collectors.toSet()));
 		System.out.println(map7);
 
-		System.out.println("reducing():----");
+		System.out.println("reducing():--------------------------------");
 		Optional<Integer> optional5 = intList.stream().collect(Collectors.reducing((n1, n2) -> n1 * n2));
 		System.out.println(optional5.get());
 		Map<String, Optional<Student>> map8 = students.stream().collect(Collectors.groupingBy(s -> s.getName(),
