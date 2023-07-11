@@ -19,8 +19,15 @@ public class CollectorsMethodDemo1 {
 
 	public static void main(String[] args) {
 		List<Person> people = MyUtility.getPersons();
+		List<Employee> employees = MyUtility.getEmployees();
 
 		System.out.println("averagingDouble():----------------------------------------");
+
+		Double double1 = people.stream().collect(Collectors.averagingInt(Person::getAge));
+		System.out.println(double1);
+
+		Double double2 = employees.stream().collect(Collectors.averagingDouble(Employee::getSal));
+		System.out.println(double2);
 
 		System.out.println("collectingAndThen():----------------------------------------");
 		//This method is most commonly used for creating immutable collections.
@@ -52,7 +59,6 @@ public class CollectorsMethodDemo1 {
 		System.out.println(count);
 
 		System.out.println("groupingBy():----------------------------------------");
-		List<Employee> employees = MyUtility.getEmployees();
 		// Group employees by department
 		Map<String, List<Employee>> map1 = employees.stream().collect(Collectors.groupingBy(e -> e.getDepartment()));
 		System.out.println(map1);
