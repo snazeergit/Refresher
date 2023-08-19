@@ -36,7 +36,7 @@ public class StreamsMethodDemo2 {
 		list.add(3);
 		list.add(1);
 		Set<Integer> set = list.stream().map(n -> n).sorted().collect(Collectors.toSet());
-System.out.println();
+		System.out.println();
 		//reduce(T, BinaryOperator)
 		Integer integer = list.stream().reduce(0, (a, b) -> a + b);
 		System.out.println(integer);

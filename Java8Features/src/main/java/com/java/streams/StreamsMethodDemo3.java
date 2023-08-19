@@ -20,6 +20,10 @@ public class StreamsMethodDemo3 {
 		//Fetch the top 3 salaried employees in descending order
 		employees.stream().sorted((e1, e2) -> -e1.getSal().compareTo(e2.getSal())).limit(3)
 				.forEach(System.out::println);
+
+		System.out.println("-- sorted(-) --");
+		employees.stream().map(e -> e.getSal()).sorted(Comparator.reverseOrder()).distinct()
+				.forEach(System.out::println);
 		System.out.println("---");
 
 		//Fetch the bottom 3 salaried employees in descending order
@@ -38,9 +42,11 @@ public class StreamsMethodDemo3 {
 		employees.stream().filter(e -> e.getAge() < 30).sorted((e1, e2) -> e1.getSal().compareTo(e2.getSal()))
 				.collect(Collectors.toSet()).forEach(System.out::println);
 		System.out.println();
+
 		employees.stream().filter(e -> e.getAge() < 30).sorted(Comparator.comparingInt(Employee::getAge))
 				.collect(Collectors.toSet()).forEach(System.out::println);
 		System.out.println();
+
 		employees.stream().distinct().sorted(Comparator.comparing(Employee::getAge)).collect(Collectors.toList())
 				.forEach(System.out::println);
 
