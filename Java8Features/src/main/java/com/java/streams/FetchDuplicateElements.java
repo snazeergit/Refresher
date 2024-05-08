@@ -38,8 +38,9 @@ public class FetchDuplicateElements {
 		System.out.println(uniqueNames);
 		System.out.println("------------------------------");
 
+		
 		//Approach-2
-		//Arranging List into Map with names as key and names frequency(no. of times repeated) as value
+		//Arranging List into Map with names as key and name's frequency(no. of times repeated) as value
 		//Function.identity() returns a Function that returns the input argument as output
 		//Collectors.counting(), returns the no of times name is repeated
 		Map<String, Long> map = list.stream()
@@ -56,6 +57,7 @@ public class FetchDuplicateElements {
 		System.out.println(uniqNames);
 		System.out.println("------------------------------");
 
+		
 		//Approach-3
 		//COllectins.frequency method search for a given name in the list and returns the frequency of the given name  
 		HashSet<String> duplicateNames1 = list.stream().filter(name -> Collections.frequency(list, name) > 1)
