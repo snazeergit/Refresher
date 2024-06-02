@@ -10,7 +10,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StudentStreamDemo {
 
@@ -40,13 +39,17 @@ public class StudentStreamDemo {
 		System.out.println("Total Students: " + count);
 
 		//4- Find the max age of student
-		int max = list.stream().max((s1, s2) -> Integer.valueOf(s1.getAge()).compareTo(Integer.valueOf(s2.getAge())))
+		int max2 = list.stream().max((s1, s2) -> Integer.valueOf(s1.getAge()).compareTo(Integer.valueOf(s2.getAge())))
 				.get().getAge();
+
+		int max = list.stream().max(Comparator.comparing(Student::getAge)).get().getAge();
 		System.out.println("Max age: " + max);
+
 		int max1 = list.stream()
 				.sorted((s1, s2) -> -Integer.valueOf(s1.getAge()).compareTo(Integer.valueOf(s2.getAge()))).skip(1)
 				.findFirst().get().getAge();
 		System.out.println("Second Max age: " + max1);
+
 		int min = list.stream().min((s1, s2) -> Integer.valueOf(s1.getAge()).compareTo(Integer.valueOf(s2.getAge())))
 				.get().getAge();
 		System.out.println("Min age: " + min);
@@ -138,24 +141,33 @@ public class StudentStreamDemo {
 		Student student1 = list.stream()
 				.sorted((s1, s2) -> -Integer.valueOf(s1.getRank()).compareTo(Integer.valueOf(s2.getRank()))).skip(1)
 				.findFirst().get();
-
 		System.out.println("Second highest rank: " + student1.getRank());
+
+		int rank = list.stream().sorted(Comparator.comparing(Student::getRank).reversed()).skip(1).findFirst().get()
+				.getRank();
+		System.out.println("Second highest rank: " + rank);
 
 		Student student2 = list.stream().sorted(Comparator.comparingInt(Student::getRank).reversed()).skip(0)
 				.findFirst().get();
 		System.out.println("First highest rank: " + student2.getRank());
 
-		//16. Find Student's Firstname department wise Map<String, List<String>>
+		//16. Find Student's Firstname department wise Map<String, List<String>> TODO
 		Map<String, Map<String, List<Student>>> map7 = list.stream().collect(
 				Collectors.groupingBy(Student::getDepartmantName, Collectors.groupingBy(Student::getFirstName)));
 		System.out.println(map7);
 
+		Map<String, List<Student>> map8 = list.stream().collect(Collectors.groupingBy(Student::getDepartmantName));
+		System.out.println("->" + map8);
+		LinkedHashMap<String, List<Student>> linkedHashMap2 = map8.entrySet().stream().collect(Collectors
+				.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldVal, newVal) -> oldVal, LinkedHashMap::new));
+		System.out.println(linkedHashMap2);
+
 		//17: Sorting Employees by Name and Age | sorting using two feilds
 		Comparator<Student> comparator1 = Comparator.comparing(Student::getAge);
 		Comparator<Student> comparator2 = Comparator.comparing(Student::getFirstName);
-		
-		
-		List<Student> students = list.stream().sorted(comparator1.thenComparing(comparator2)).collect(Collectors.toList());
+
+		List<Student> students = list.stream().sorted(comparator1.thenComparing(comparator2))
+				.collect(Collectors.toList());
 		System.out.println(students);
 
 	}
