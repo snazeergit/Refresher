@@ -1,4 +1,4 @@
-package com.nt;
+package com.nt.interview;
 
 public class Student {
 	String firstName;
