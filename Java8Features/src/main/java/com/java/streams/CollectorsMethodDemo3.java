@@ -11,10 +11,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
+import com.java.model.Employee;
+import com.java.model.Person;
+import com.java.model.Student;
 import com.java.myutility.MyUtility;
-import com.java.pojo.Employee;
-import com.java.pojo.Person;
-import com.java.pojo.Student;
 
 public class CollectorsMethodDemo3 {
 

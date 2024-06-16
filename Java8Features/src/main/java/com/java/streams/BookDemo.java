@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.java.pojo.Book;
+import com.java.model.Book;
 
 public class BookDemo {
 

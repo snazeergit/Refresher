@@ -5,8 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.java.model.Employee;
 import com.java.myutility.MyUtility;
-import com.java.pojo.Employee;
 
 public class StreamsMethodDemo3 {
 

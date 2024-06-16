@@ -1,24 +1,20 @@
-package com.java.pojo;
+package com.java.model;
 
 import java.util.List;
 import java.util.Objects;
 
-public class Employee {
+public class Person {
 	String name;
 	Integer age;
 	String gender;
 	List<String> locationPref;
-	Double sal;
-	String department;
 
-	public Employee(String name, Integer age, String gender, List<String> locationPref, Double sal, String department) {
+	public Person(String name, Integer age, String gender, List<String> locationPref) {
 		super();
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
 		this.locationPref = locationPref;
-		this.sal = sal;
-		this.department = department;
 	}
 
 	public String getName() {
@@ -53,31 +49,9 @@ public class Employee {
 		this.locationPref = locationPref;
 	}
 
-	public Double getSal() {
-		return sal;
-	}
-
-	public void setSal(Double sal) {
-		this.sal = sal;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", age=" + age + ", gender=" + gender + ", locationPref=" + locationPref
-				+ ", sal=" + sal + ", department=" + department + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(age, name);
+		return "Person [name=" + name + ", age=" + age + ", gender=" + gender + ", locationPref=" + locationPref + "]";
 	}
 
 	@Override
@@ -88,8 +62,9 @@ public class Employee {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Employee other = (Employee) obj;
-		return Objects.equals(age, other.age) && Objects.equals(name, other.name);
+		Person other = (Person) obj;
+		return Objects.equals(age, other.age) && Objects.equals(gender, other.gender)
+				&& Objects.equals(name, other.name);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.java.pojo;
+package com.java.model;
 
 public class Book {
 	private String title;

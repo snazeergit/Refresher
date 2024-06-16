@@ -13,10 +13,10 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import com.java.model.Employee;
+import com.java.model.Person;
+import com.java.model.Student;
 import com.java.myutility.MyUtility;
-import com.java.pojo.Employee;
-import com.java.pojo.Person;
-import com.java.pojo.Student;
 
 public class StreamsMethodDemo1 {
 

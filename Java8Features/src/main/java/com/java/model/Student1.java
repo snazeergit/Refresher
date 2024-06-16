@@ -1,6 +1,6 @@
-package com.java.streams.learning;
+package com.java.model;
 
-public class Student {
+public class Student1 {
 
 	private int id;
 
@@ -20,7 +20,7 @@ public class Student {
 
 	private int rank;
 
-	public Student(int id, String firstName, String lastName, int age, String gender, String departmantName,
+	public Student1(int id, String firstName, String lastName, int age, String gender, String departmantName,
 			int joinedYear, String city, int rank) {
 		super();
 		this.id = id;

@@ -1,4 +1,4 @@
-package com.java.pojo;
+package com.java.model;
 
 import java.util.Arrays;
 import java.util.Objects;

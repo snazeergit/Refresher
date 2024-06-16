@@ -16,7 +16,7 @@ public class StreamsMethodDemo2 {
 
 	public static void main(String[] args) {
 
-		Stream<String> stream = Stream.of("This", "forms", "forms", "a", "short", "a", "sentence", "sentence");
+		Stream<String> stream = Stream.of("This", "forms", "forms", "a", "short", "aa", "sentence", "sentence");
 
 		Consumer<String> con = new Consumer<String>() {
 			@Override

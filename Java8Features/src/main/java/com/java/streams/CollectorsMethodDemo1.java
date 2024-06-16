@@ -11,9 +11,9 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.stream.Collectors;
 
+import com.java.model.Employee;
+import com.java.model.Person;
 import com.java.myutility.MyUtility;
-import com.java.pojo.Employee;
-import com.java.pojo.Person;
 
 public class CollectorsMethodDemo1 {
 
@@ -54,7 +54,7 @@ public class CollectorsMethodDemo1 {
 						Collections::unmodifiableMap));
 		System.out.println(map2);
 
-		System.out.println("count():----------------------------------------");
+		System.out.println("count():------------------------------------------");
 		Long count = people.stream().map(p -> p.getName()).collect(Collectors.counting());
 		System.out.println(count);
 

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.java.pojo.Employee;
-import com.java.pojo.Person;
-import com.java.pojo.Student;
+import com.java.model.Employee;
+import com.java.model.Person;
+import com.java.model.Student;
 
 public class MyUtility {
 

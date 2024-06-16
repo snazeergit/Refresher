@@ -12,9 +12,9 @@ public class FindDuplicateElements {
 	static String s = "NAZEER";
 
 	public static void main(String[] args) {
-		//approach1();
+		approach1();
 		
-		approach2();
+		//approach2();
 		
 
 	}
@@ -42,7 +42,8 @@ List<Character> list = list2.stream().filter(n->!set.add(n)).collect(Collectors.
 		System.out.println(list);
 		
 		Map<Character, Long> map = list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-		List<Character> list2 = map.entrySet().stream().filter(m->m.getValue()>1).map(m->m.getKey()).collect(Collectors.toList());
+		System.out.println(map);
+		List<Character> list2 = map.entrySet().stream().filter(m->m.getValue()==1).map(m->m.getKey()).collect(Collectors.toList());
 		System.out.println(list2);
 	}
 }
