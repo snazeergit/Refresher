@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class NthDemo {
+public class NthHighestSalary {
 
 	public static void main(String[] args) {
 
