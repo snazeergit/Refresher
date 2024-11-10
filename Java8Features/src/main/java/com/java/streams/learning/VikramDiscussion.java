@@ -12,7 +12,7 @@ public class VikramDiscussion {
 		Integer integer = list.stream().collect(Collectors.summingInt(Integer::intValue));
 		System.out.println(integer);
 
-		int sum = list.stream().mapToInt(Integer::new).sum();
+		int sum = list.stream().mapToInt(Integer::intValue).sum();
 		System.out.println(sum);
 
 		Integer integer2 = list.stream().reduce(0, (a, b) -> a + b);
@@ -20,7 +20,6 @@ public class VikramDiscussion {
 
 		Integer integer3 = list.stream().reduce(0, Integer::sum);
 		System.out.println(integer3);
-
 	}
 
 }

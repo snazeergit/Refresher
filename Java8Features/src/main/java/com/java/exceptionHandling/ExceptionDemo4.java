@@ -6,17 +6,17 @@ public class ExceptionDemo4 {
 		int i = 1;
 
 		try {
-			i = i + 1;
+			i = i + 1; //2
 
 			return i;
 		} catch (Exception e) {
 			i = i + 2;
 			//return i;
 		} finally {
-			i = i + 3;
-			//return 1;
+			i = i + 3; //5
+			//return i;
 		}
-return i;
+		return i; //5
 		//System.out.println(i);
 	}
 

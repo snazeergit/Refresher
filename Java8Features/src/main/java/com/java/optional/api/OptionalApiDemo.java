@@ -7,7 +7,7 @@ import java.util.Optional;
 public class OptionalApiDemo {
 
 	public static void main(String[] args) {
-		List<String> list = Arrays.asList("Sathya", "Sireesha", "Seshu", "Sheshadri");
+		List<String> list = Arrays.asList("Sathya", "Sneha", "Seshu", "Sheshadri");
 		Optional<String> optional1 = Optional.ofNullable(list.get(1));
 		Optional<String> optional2 = Optional.ofNullable(list.get(1));
 		boolean flag = optional1.equals(optional2);
