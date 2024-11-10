@@ -59,9 +59,9 @@ public class CollectorsMethodDemo3 {
 		System.out.println(set);
 
 		System.out.println("toConcurrentMap():----------------------------------------");
-		//if duplicate keys found then it returns IllegalStateException
-		//in the below example same student name(keyMapper) can throw the exception, hence to avoid it distinct is used,
-		// or you can provide the third argument(mergeFunction) as shown below to handle it.
+		//if duplicate keys found then it throws IllegalStateException
+		//in the below example same student name(keyMapper) can throw the exception, hence to avoid it 
+		// provide the third argument(mergeFunction) as shown below to handle it.
 		ConcurrentMap<String, Integer> concurrentMap = students.stream().distinct()
 				.collect(Collectors.toConcurrentMap(Student::getName, Student::getMarks));
 		System.out.println(concurrentMap);
