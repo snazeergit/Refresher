@@ -1,4 +1,4 @@
-package com.vmware;
+package com.vmware.eqaulsHashCodeContract;
 
 import java.util.Objects;
 
