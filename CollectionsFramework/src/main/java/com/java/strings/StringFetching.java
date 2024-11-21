@@ -14,16 +14,16 @@ public class StringFetching {
 		List<Character> l3 = new ArrayList<Character>();
 
 		char[] cs = s.toCharArray();
-		for (int i = 0; i < cs.length; i++) {
-			System.out.println(cs[i]);
-			if (Character.isLetter(cs[i])) {
-				l1.add(cs[i]);
-			} else if (Character.isDigit(cs[i])) {
-				l2.add(cs[i]);
+		for(char c: cs) {
+			if (Character.isLetter(c)) {
+				l1.add(c);
+			} else if (Character.isDigit(c)) {
+				l2.add(c);
 			} else {
-				l3.add(cs[i]);
+				l3.add(c);
 			}
 		}
+		
 		System.out.println("Charactors: " + l1.toString());
 		System.out.println("Digits: " + l2.toString());
 		System.out.println("Special Chars: " + l3.toString());
