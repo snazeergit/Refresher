@@ -33,7 +33,7 @@ public class LinearIntegerStreamDemo {
 				.collect(Collectors.toCollection(LinkedHashSet::new));
 		System.out.println("Reverse order-distinct:	" + set2);
 
-		//3. Thrird highest
+		//3. Third highest
 		Integer integer = list.stream().sorted(Comparator.reverseOrder()).distinct().skip(2).findFirst().get();
 		System.out.println("Third highest:	" + integer);
 
@@ -41,7 +41,7 @@ public class LinearIntegerStreamDemo {
 		Integer integer2 = list.stream().sorted().distinct().skip(1).findFirst().get();
 		System.out.println("Second lowest:	" + integer2);
 
-		//5 Deplicate elements as KEYs and no .of time repeated as VLaues
+		//5. Elements as KEYs and no .of time repeated as VLaues
 		Map<Integer, Long> map2 = list.stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println("Map<Keys, Ripitation>:	" + map2);
@@ -67,6 +67,7 @@ public class LinearIntegerStreamDemo {
 		//7. Distinct Elements
 		List<Integer> list4 = list.stream().distinct().collect(Collectors.toList());
 		System.out.println("Distinct Elemets:	" + list4);
+		
 		//7. Distinct Elements- sorted
 		List<Integer> list8 = list.stream().distinct().sorted().collect(Collectors.toList());
 		System.out.println("Distinct -Sorted:	" + list8);

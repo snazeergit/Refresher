@@ -44,27 +44,27 @@ public class StreamsMethodDemo1 {
 		System.out.println(list4);
 
 		System.out.println("sorted(A)---------------------");
-		List<Integer> list5 = list.stream().sorted((a, b) -> a < b ? -1 : a > b ? 1 : 0).collect(Collectors.toList());
+		List<Integer> list5 = list.stream().sorted((e1, e2) -> e1 < e2 ? -1 : e1 > e2 ? 1 : 0).collect(Collectors.toList());
 		System.out.println(list5);
 
 		System.out.println("sorted(D)---------------------");
-		List<Integer> list6 = list.stream().sorted((a, b) -> a < b ? 1 : a > b ? -1 : 0).collect(Collectors.toList());
+		List<Integer> list6 = list.stream().sorted((e1, e2) -> e1 < e2 ? 1 : e1 > e2 ? -1 : 0).collect(Collectors.toList());
 		System.out.println(list6);
 
 		System.out.println("sorted(A)---------------------");
-		List<Integer> list7 = list.stream().sorted((a, b) -> a.compareTo(b)).collect(Collectors.toList());
+		List<Integer> list7 = list.stream().sorted((e1, e2) -> e1.compareTo(e2)).collect(Collectors.toList());
 		System.out.println(list7);
 
 		System.out.println("sorted(D)---------------------");
-		List<Integer> list8 = list.stream().sorted((a, b) -> -a.compareTo(b)).collect(Collectors.toList());
+		List<Integer> list8 = list.stream().sorted((e1, e2) -> -e1.compareTo(e2)).collect(Collectors.toList());
 		System.out.println(list8);
 
 		System.out.println("min()---------------------");
-		Integer min = list.stream().min((a, b) -> a < b ? -1 : a > b ? 1 : 0).get();
+		Integer min = list.stream().min((e1, e2) -> e1 < e2 ? -1 : e1 > e2 ? 1 : 0).get();
 		System.out.println(min);
 
 		System.out.println("max()---------------------");
-		Integer max = list.stream().max((a, b) -> a.compareTo(b)).get();
+		Integer max = list.stream().max((e1, e2) -> e1.compareTo(e2)).get();
 		System.out.println(max);
 
 		System.out.println("count()---------------------");
@@ -109,15 +109,15 @@ public class StreamsMethodDemo1 {
 		List<String[]> list11 = sList.stream().map(p -> p.getLoc()).collect(Collectors.toList());
 		Set<String> set2 = list11.stream().map(a -> Arrays.asList(a)).flatMap(l -> l.stream())
 				.collect(Collectors.toSet());
-		set2.stream().sorted((a, b) -> a.compareTo(b)).forEach(System.out::println);
+		set2.stream().sorted((s1, s2) -> s1.compareTo(s2)).forEach(System.out::println);
 
 		System.out.println("flatMap(-)---------------------");
 		Set<String> set3 = sList.stream().flatMap(p -> Arrays.asList(p.getLoc()).stream()).collect(Collectors.toSet());
-		set3.stream().sorted((a, b) -> a.compareTo(b)).forEach(System.out::println);
+		set3.stream().sorted((s1, s2) -> s1.compareTo(s2)).forEach(System.out::println);
 
 		System.out.println("flatMap(-)---------------------");
 		sList.stream().flatMap(p -> Arrays.asList(p.getLoc()).stream()).collect(Collectors.toSet()).stream()
-				.sorted((a, b) -> a.compareTo(b)).forEach(System.out::println);
+				.sorted((s1, s2) -> s1.compareTo(s2)).forEach(System.out::println);
 
 		boolean match = list.stream().allMatch(n -> n % 5 == 0);
 		System.out.println(match);

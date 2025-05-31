@@ -13,6 +13,7 @@ public class Demo1 {
 		list.add(2);
 		list.add(5);
 		list.add(4);
+		//Sum of odd numbers in a given list
 		int sum = list.stream().filter(n -> n % 2 != 0).mapToInt(Integer::new).sum();
 		System.out.println(sum);
 

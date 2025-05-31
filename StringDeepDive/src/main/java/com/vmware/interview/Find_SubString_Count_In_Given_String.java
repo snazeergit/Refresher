@@ -14,7 +14,8 @@ public class Find_SubString_Count_In_Given_String {
 		}
 		System.out.println("substrings count " + count);
 		
-		//using indexOf() returns the index of the first occurance of the substring in the given String if substring not found then returns -1
+		//using indexOf() returns the index of the first occurance of the substring 
+		//in the given String if substring not found then it returns -1
 		count = 0;
 		for (String s : str) {
 			if (word.indexOf(s) != -1)

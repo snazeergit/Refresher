@@ -1,5 +1,7 @@
 package com.java.streams.learning;
 
+import java.util.stream.IntStream;
+
 public class StringDuplicateRemove {
 
 	public static void main(String[] args) {
