@@ -19,7 +19,18 @@ public class FindNthHighest {
 		map.put("Kevin", 1100);
 		map.put("James", 1200);
 		map.put("Justin", 1300);
+
+		//Way-1
+		Integer secondHighestSal = map.entrySet().stream().map(e -> e.getValue()).sorted(Comparator.reverseOrder())
+				.distinct().skip(1).findFirst().get();
+		List<String> list = map.entrySet().stream().filter(e -> e.getValue().equals(secondHighestSal))
+				.map(e -> e.getKey()).collect(Collectors.toList());
+		System.out.println(list);
+		System.out.println(secondHighestSal);
 		
+		System.out.println("---------------");
+
+		//Way-2
 		//Arrange the map with salary as a key and list of names as value
 		Map<Integer, List<String>> map1 = map.entrySet().stream().collect(
 				Collectors.groupingBy(Map.Entry::getValue, Collectors.mapping(Map.Entry::getKey, Collectors.toList())));
