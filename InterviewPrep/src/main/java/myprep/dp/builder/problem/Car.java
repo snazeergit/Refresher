@@ -5,18 +5,17 @@ import java.util.Objects;
 /*
  * 📌 What is Builder Design Pattern?
 
-The Builder Pattern is a creational design pattern that lets you construct complex objects step by step. 
-It allows you to build different representations of an object using the same building process.
+ * The Builder Pattern is a creational design pattern that lets you construct complex objects step by step. 
+ * It allows you to build different representations of an object using the same building process.
 
-Use it when:
+ * Use it when:
 	•	You have a complex object with many optional parameters.
 	•	You want to make your object creation readable and maintainable.
- * 
- * 
+	 
  * If we have a scenario where we wanted to pass only few properties to create an object then we are forced to write 
  * overloaded constructors as below and we have no choice, it makes the code mode complex and messy to avoid this we 
  * go for builder design pattern where we have capability to pass the properties only required to construct an object.
- * Lets say I need an obj only with brand and model properties, may be i need another obj only with price, like wise.
+ * Lets say I need an obj only with brand and model properties, may be I need another obj only with price, like wise.
  * This was discussed in myprep.dp.builder.solution1 package.
  * We can make specific properties mandatory for every obj that is discussed in myprep.dp.builder.solution2 package
  * */
@@ -67,7 +66,7 @@ public class Car {
 
 	/* Here constructor with String as a argument which takes model as an input is not allowed as 
 	 * we already have the 1-string param Constructor which takes brand as an input
-	 * so we can no have 1-string param constuctor in class and we can not use the existing 1-param string 
+	 * so we can not have 1-string param constuctor in class and we can not use the existing 1-param string 
 	 * constructor to read the model input as its already configured to read only brand.
 	 * 
 		// Constructor with model only

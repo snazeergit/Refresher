@@ -10,5 +10,5 @@ public class CarMain {
 
 /* Why Builder Design Pattern
  * 	•	No overloaded constructors needed.
-	•	You can selectively set the fields you want.
+ *	•	You can selectively set the fields you want.
  */
