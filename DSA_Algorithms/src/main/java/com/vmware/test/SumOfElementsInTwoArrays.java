@@ -8,16 +8,16 @@ public class SumOfElementsInTwoArrays {
 		int n1 = ar1.length;
 		int n2 = ar2.length;
 
-		int k = 12;
+		int k = 16;
 		int dif = Integer.MAX_VALUE;
 		int res_l = 0, res_r = 0;
 
 		int left = 0, right = n2 - 1;
 		while (left < n1 && right >= 0) {
 			if (Math.abs(ar1[left] + ar2[right] - k) < dif) {
+				dif = Math.abs(ar1[left] + ar2[right] - k);
 				res_l = left;
 				res_r = right;
-				dif = Math.abs(ar1[left] + ar2[right] - k);
 			} else if (ar1[left] + ar2[right] > k) {
 				right--;
 			} else {

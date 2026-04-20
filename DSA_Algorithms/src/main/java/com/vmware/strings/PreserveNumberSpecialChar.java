@@ -5,6 +5,7 @@ public class PreserveNumberSpecialChar {
 	public static void main(String[] args) {
 
 		String in = "ab$c123!e";
+		//ec$b123!a
 		String out = stringReverse(in);
 		System.out.println("Input	:" + in);
 		System.out.println("Output	:" + out);
